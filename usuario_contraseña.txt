@@ -1,0 +1,10 @@
+
+
+
+cliente0@email.com  cliente0
+cliente1@email.com  cliente1
+cliente2@email.com  cliente2
+
+tienda1@email.com   tienda1
+tienda2@email.com    tienda2
+tienda3@email.com    tienda3
