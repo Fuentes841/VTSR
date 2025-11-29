@@ -56,11 +56,13 @@ function escapeString($string) {
 function iniciarSesion($email, $password) {
     $query = "SELECT u.*, 
               CASE 
+                  WHEN a.id_admin IS NOT NULL THEN 'admin'
                   WHEN c.id_cliente IS NOT NULL THEN 'cliente'
                   WHEN t.id_tienda IS NOT NULL THEN 'tienda'
                   ELSE 'usuario'
               END as tipo_usuario
               FROM usuario u
+              LEFT JOIN admin a ON u.id = a.id_admin
               LEFT JOIN cliente c ON u.id = c.id_cliente
               LEFT JOIN tienda t ON u.id = t.id_tienda
               WHERE u.email = ?";
