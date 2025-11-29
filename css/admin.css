@@ -1,0 +1,487 @@
+/* Estilos para el Panel de Administración */
+
+.admin-container {
+    max-width: 1400px;
+    margin: 2em auto;
+    padding: 2em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.admin-title {
+    color: #2e7d32;
+    margin-bottom: 1.5em;
+    font-size: 2rem;
+    border-bottom: 3px solid #2e7d32;
+    padding-bottom: 0.5em;
+}
+
+.mensaje-admin {
+    padding: 1em;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.mensaje-admin.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensaje-admin.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Pestañas de navegación */
+.admin-tabs {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 2em;
+    border-bottom: 2px solid #e0e0e0;
+    flex-wrap: wrap;
+}
+
+.admin-tab {
+    padding: 1em 1.5em;
+    text-decoration: none;
+    color: #666;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 500;
+}
+
+.admin-tab:hover {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.admin-tab.active {
+    background: #2e7d32;
+    color: #fff;
+    border-color: #2e7d32;
+}
+
+.admin-tab i {
+    font-size: 1.1em;
+}
+
+/* Contenedor de tabla */
+.admin-content {
+    margin-top: 1em;
+}
+
+.admin-table-container {
+    overflow-x: auto;
+}
+
+/* Tabla de administración */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+.admin-table thead {
+    background: #2e7d32;
+    color: #fff;
+}
+
+.admin-table th {
+    padding: 1em;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #1b5e20;
+}
+
+.admin-table td {
+    padding: 0.8em 1em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.admin-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges para tipos de usuario */
+.badge {
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-admin {
+    background: #f44336;
+    color: #fff;
+}
+
+.badge-cliente {
+    background: #2196F3;
+    color: #fff;
+}
+
+.badge-tienda {
+    background: #FF9800;
+    color: #fff;
+}
+
+.badge-usuario {
+    background: #9E9E9E;
+    color: #fff;
+}
+
+/* Botones de acción */
+.admin-actions {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-eliminar {
+    background: #f44336;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-eliminar:hover {
+    background: #d32f2f;
+}
+
+.btn-eliminar i {
+    font-size: 0.9em;
+}
+
+.btn-suspender {
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-suspender:hover {
+    background: #f57c00;
+}
+
+.btn-suspender i {
+    font-size: 0.9em;
+}
+
+.btn-activar {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-activar:hover {
+    background: #388e3c;
+}
+
+.btn-activar i {
+    font-size: 0.9em;
+}
+
+/* Badges de estado */
+.badge-suspended {
+    background: #f44336;
+    color: #fff;
+}
+
+.badge-active {
+    background: #4caf50;
+    color: #fff;
+}
+
+/* Filas suspendidas */
+.suspended-row {
+    background-color: #ffebee !important;
+    opacity: 0.8;
+}
+
+.suspended-row:hover {
+    background-color: #ffcdd2 !important;
+    opacity: 1;
+}
+
+/* Formularios de administración */
+.admin-form-container {
+    background: #f9f9f9;
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-bottom: 2em;
+    border: 1px solid #e0e0e0;
+}
+
+.admin-form-container h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: #2e7d32;
+    font-size: 1.3em;
+}
+
+.admin-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    padding: 0.7em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95em;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2e7d32;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 0.5em;
+    width: auto;
+}
+
+.form-group label input[type="checkbox"] {
+    display: inline;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+/* Botones de formulario */
+.btn-crear {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 500;
+}
+
+.btn-crear:hover {
+    background: #388e3c;
+}
+
+.btn-editar {
+    background: #2196F3;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-editar:hover {
+    background: #1976D2;
+}
+
+.btn-editar i {
+    font-size: 0.9em;
+}
+
+.btn-guardar {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-guardar:hover {
+    background: #388e3c;
+}
+
+.btn-cancelar {
+    background: #757575;
+    color: #fff;
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-cancelar:hover {
+    background: #616161;
+}
+
+/* Modal de edición */
+.admin-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.admin-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2em;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.admin-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 0.5em;
+}
+
+.admin-modal-close:hover,
+.admin-modal-close:focus {
+    color: #000;
+}
+
+.admin-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    color: #2e7d32;
+    font-size: 1.5em;
+}
+
+.admin-modal-content .admin-form {
+    grid-template-columns: 1fr;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 1em;
+        margin: 1em;
+    }
+    
+    .admin-tabs {
+        flex-direction: column;
+    }
+    
+    .admin-tab {
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .admin-table {
+        font-size: 0.85rem;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 0.5em;
+    }
+    
+    .admin-table-container {
+        overflow-x: scroll;
+    }
+    
+    .admin-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5em;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+}
+

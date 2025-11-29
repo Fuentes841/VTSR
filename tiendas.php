@@ -118,6 +118,9 @@ try {
                             <i class="fa-solid fa-user perfil-icono"></i>
                             <div class="perfil-dropdown">
                                 <a href="perfil.php">Mi Perfil</a>
+                                <?php if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin'): ?>
+                                    <a href="panel_admin.php">Panel de Administración</a>
+                                <?php endif; ?>
                                 <?php if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'tienda'): ?>
                                     <a href="mis_productos.php">Mis Productos</a>
                                 <?php endif; ?>

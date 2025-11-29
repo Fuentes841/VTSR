@@ -13,13 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $conexion = getDBConnection();
             
             // Verificar credenciales y determinar tipo de usuario
-            $query = "SELECT u.id, u.nombre, u.apellido, u.email, u.password, u.ruta_imagen,
+            $query = "SELECT u.id, u.nombre, u.apellido, u.email, u.password, u.ruta_imagen, u.suspendido,
                      CASE 
+                         WHEN a.id_admin IS NOT NULL THEN 'admin'
                          WHEN c.id_cliente IS NOT NULL THEN 'cliente'
                          WHEN t.id_tienda IS NOT NULL THEN 'tienda'
                          ELSE NULL 
                      END as tipo_usuario
                      FROM usuario u
+                     LEFT JOIN admin a ON u.id = a.id_admin
                      LEFT JOIN cliente c ON u.id = c.id_cliente
                      LEFT JOIN tienda t ON u.id = t.id_tienda
                      WHERE u.email = ?";
@@ -29,8 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $resultado = mysqli_stmt_get_result($stmt);
             
             if ($usuario = mysqli_fetch_assoc($resultado)) {
-                // Verificar la contraseña
-                if (password_verify($password, $usuario['password'])) {
+                // Verificar si el usuario está suspendido
+                if (isset($usuario['suspendido']) && $usuario['suspendido'] == 1) {
+                    $error = 'Su cuenta ha sido suspendida. Contacte al administrador para más información.';
+                } elseif (password_verify($password, $usuario['password'])) {
                     // Iniciar sesión
                     $_SESSION['usuario_id'] = $usuario['id'];
                     $_SESSION['nombre'] = $usuario['nombre'];
